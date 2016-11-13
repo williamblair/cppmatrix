@@ -1,1 +1,36 @@
-cppmatrix
+# cppmatrix
+fbsetbg-gtkmm - frontend for fbsetbg, the fluxbox background setter
+William (BJ) Blair III
+10/04/16
+
+BASIC INFO:
+-------------------
+requires the gtkmm library to run, which can be installed
+on Debian/Ubuntu-ish systems with:
+
+	sudo apt-get install libgtkmm-3.0-1
+
+Add images to choose from by pressing the 'Add Directory' button.
+You can also set fbsetbg options by selecting from Fullscreen, Centered,
+Tiled, and Aspect; which represent the -f, -c, -t, and -a options
+respectively.
+
+FBSETBG ERRORS:
+---------------------------
+On Archlinux, fbsetbg gave me a couple of errors at first:
+xmessage: command not found  <-- solution: install xorg-xmessage
+
+And, because fbsetbg is a wrapper, you need one of fluxbox's
+supported tools to actually set the wallpaper; it suggests installing
+esetroot, feh, or wmsetbg. Since feh is the only one of these
+currently contained in Arch's repos, install that and you should
+be fine.
+
+RUNNING IN FLUXBOX:
+----------------------------------
+I personally made a directory ~/.fluxbox/applications (not
+to be confused with the 'apps' file), and copied the binary there,
+then added it to my menu file; but you could run the program from anywhere
+
+To add it to your menu, create an entry similar to this somewhere
+in ~/.fluxbox/menu:
