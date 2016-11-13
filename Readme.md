@@ -4,9 +4,6 @@ cmatrix. Visit Chris's website at http://www.asty.org/cmatrix/
 
 RUNNING:
 -------------------
-In this directory you will find the file 'cppmatrix',
-which is a x86_64 bit compiled binary. It requires ncurses to run.
-
 usage:
 
    cppmatrix [-s speed] [-c color]
