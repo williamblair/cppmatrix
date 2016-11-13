@@ -1,36 +1,51 @@
 # cppmatrix
-fbsetbg-gtkmm - frontend for fbsetbg, the fluxbox background setter
-William (BJ) Blair III
-10/04/16
+cppmatrix - written by BJ Blair; inspired by Chris Allegretta's
+cmatrix. Visit Chris's website at http://www.asty.org/cmatrix/
 
-BASIC INFO:
+RUNNING:
 -------------------
-requires the gtkmm library to run, which can be installed
-on Debian/Ubuntu-ish systems with:
+In this directory you will find the file 'cppmatrix',
+which is a x86_64 bit compiled binary. It requires ncurses to run.
 
-	sudo apt-get install libgtkmm-3.0-1
+usage:
 
-Add images to choose from by pressing the 'Add Directory' button.
-You can also set fbsetbg options by selecting from Fullscreen, Centered,
-Tiled, and Aspect; which represent the -f, -c, -t, and -a options
-respectively.
+   cppmatrix [-s speed] [-c color]
 
-FBSETBG ERRORS:
----------------------------
-On Archlinux, fbsetbg gave me a couple of errors at first:
-xmessage: command not found  <-- solution: install xorg-xmessage
+where 'speed' is an approximate FPS cppmatrix tries to run at (defaults to 20),
+and 'color' is a string of the color to display the text in (defaults to green)
+supported colors are:
 
-And, because fbsetbg is a wrapper, you need one of fluxbox's
-supported tools to actually set the wallpaper; it suggests installing
-esetroot, feh, or wmsetbg. Since feh is the only one of these
-currently contained in Arch's repos, install that and you should
-be fine.
+    green, blue, red, yello, magenta/purple, cyan, white, and black
 
-RUNNING IN FLUXBOX:
-----------------------------------
-I personally made a directory ~/.fluxbox/applications (not
-to be confused with the 'apps' file), and copied the binary there,
-then added it to my menu file; but you could run the program from anywhere
+example usage:
 
-To add it to your menu, create an entry similar to this somewhere
-in ~/.fluxbox/menu:
+    cppmatrix -s 40 -c blue
+
+
+COMPILING:
+-------------------
+You will need g++ and make to compile (technically make is optional - it's not
+that hard to compile by hand!)
+For other systems, you will need to install the ncurses development libraries,
+installed with:
+
+    sudo apt-get install libncurses5-dev libncursesw5-dev
+
+for debian/ubuntu systems; modify for your package manager.
+Make sure you
+
+    sudo ldconfig
+
+to update your libraries!
+Then type:
+
+    make clean
+    make
+
+which should give you a usable in this directory. You can then place the
+program somwhere like /usr/local/bin so you can run cppmatrix wherever!
+
+COPYRIGHT
+----------
+Released under GNU General Public License - see 'COPYING'; I have no 
+affiliation with 'the Matrix'
