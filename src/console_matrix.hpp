@@ -30,7 +30,7 @@
 #ifndef BJ_MATRIX
 #define BJ_MATRIX
 
-#define MAX_COL_HEIGHT 15 // max number of symbols in one group
+//#define MAX_COL_HEIGHT 15 // max number of symbols in one group
 
   typedef struct CodeColumn
   {
@@ -57,6 +57,7 @@
       int h; // the height of the screen
 
       int FPS; // speed of the program
+			int COL_HEIGHT; // how many characters a block of text is tall
       struct timespec myTime;
 
       //int **screen; // matrix of each location on the screen

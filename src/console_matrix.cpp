@@ -34,6 +34,7 @@ MatrixApp::MatrixApp(int argc, char *argv[])
   w=0; h=0;
 
   FPS = 20; // Estimate of how many times per second the screen updates
+	COL_HEIGHT = 15; // default max height for columns
 
   srand(time(0)); // seed time
 
@@ -54,6 +55,10 @@ MatrixApp::MatrixApp(int argc, char *argv[])
 
   // get color option and speed option
   parseArgs(argc, argv);
+
+	printw("Out of parse args!\n");
+	refresh();
+	getchar();
 
   // initialize color
   if( has_colors() ){
@@ -83,7 +88,7 @@ MatrixApp::MatrixApp(int argc, char *argv[])
     c[i].use = false;
     c[i].bold = false;
     c[i].col = i;
-    c[i].h   = rand() % MAX_COL_HEIGHT;
+    c[i].h   = rand() % COL_HEIGHT;
     c[i].topRow    = 0;
     c[i].bottomRow = 0;
   }
@@ -100,18 +105,19 @@ MatrixApp::MatrixApp(int argc, char *argv[])
 */
 }
 
-/* read arguments to see if color needs to be changed */
+/* read arguments to set options */
 void MatrixApp::parseArgs(int argc, char *argv[])
 {
   char *colorStr = NULL;    // string to hold color option
   char *speedStr = NULL;    // string to hold speed option
+	char *colStr   = NULL;    // string to hold column height option
   std::string cppColorStr;  // to use simple compare funcs
   int c;                    // holds status of getopt
 
   opterr = 0; // a ncurses variable - options error
 
-  /* check for color option */
-  while((c = getopt(argc, argv, "c:s:h")) != -1)
+  /* check for passed options */
+  while((c = getopt(argc, argv, "c:s:m:h")) != -1)
   {
     switch(c)
     {
@@ -121,6 +127,9 @@ void MatrixApp::parseArgs(int argc, char *argv[])
       case 's':
         speedStr = optarg;
 				break;
+			case 'm':
+				colStr = optarg;
+				break;	
 			case 'h':
 				printUsage(argc, argv);
 				exit(0);
@@ -172,7 +181,8 @@ void MatrixApp::parseArgs(int argc, char *argv[])
   {
     int inFPS = (int)strtol(speedStr, NULL, 10);
     if( inFPS > 0 )
-      FPS = (int)strtol(speedStr, NULL, 10);
+//      FPS = (int)strtol(speedStr, NULL, 10);
+			FPS = inFPS;
     else {
       printw("Invalid FPS as an arg! try a number > 0...\n");
       refresh();
@@ -180,6 +190,20 @@ void MatrixApp::parseArgs(int argc, char *argv[])
     }
 
   }
+
+	/* set column height if given */
+	if(colStr != NULL)
+	{
+		int inColHeight = (int)strtol(colStr, NULL, 10);
+		if( inColHeight > 0 ){
+			COL_HEIGHT = inColHeight;
+		}
+		else {
+			printw("Invalid max column height as an arg! try a number > 0...\n");
+			refresh();
+			getchar();
+		}
+	}
 
   return;
 }
@@ -190,7 +214,7 @@ void MatrixApp::resetCol(const int colNum)
   c[colNum].bold = false;
   c[colNum].col = colNum;
 
-  c[colNum].h   = rand() % MAX_COL_HEIGHT;
+  c[colNum].h   = rand() % COL_HEIGHT;
 
   c[colNum].topRow    = 0;
   c[colNum].bottomRow = 0;
@@ -331,6 +355,7 @@ void MatrixApp::printUsage(int argc, char *argv[])
 	std::cout << "Usage: " << argv[0] << " [-s speed] [-c color]" << std::endl;
 	std::cout << "-s [speed]: how fast the matrix updates (in Frames Per Second); defaults to 20\n";
 	std::cout << "-c [color]: color to display the matrix in; defaults to green\n";
+	std::cout << "-m [height]: maximum height of a column of randomized characters (default 15)\n";
 	return;
 }
 
