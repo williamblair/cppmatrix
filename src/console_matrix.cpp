@@ -34,7 +34,7 @@ MatrixApp::MatrixApp(int argc, char *argv[])
   w=0; h=0;
 
   FPS = 20; // Estimate of how many times per second the screen updates
-	COL_HEIGHT = 15; // default max height for columns
+  COL_HEIGHT = 15; // default max height for columns
 
   srand(time(0)); // seed time
 
