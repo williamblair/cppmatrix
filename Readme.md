@@ -6,7 +6,7 @@ RUNNING:
 -------------------
 usage:
 
-   cppmatrix [-s speed] [-c color]
+   cppmatrix [-s speed] [-c color] [-m height]
 
 where 'speed' is an approximate FPS cppmatrix tries to run at (defaults to 20),
 and 'color' is a string of the color to display the text in (defaults to green)
@@ -14,9 +14,11 @@ supported colors are:
 
     green, blue, red, yello, magenta/purple, cyan, white, and black
 
+-m 'height' refers to the max height of character columns (default is 15)
+
 example usage:
 
-    cppmatrix -s 40 -c blue
+    cppmatrix -s 40 -c blue -m 20
 
 
 COMPILING:
