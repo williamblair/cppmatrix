@@ -55,11 +55,11 @@ MatrixApp::MatrixApp(int argc, char *argv[])
 
   // get color option and speed option
   parseArgs(argc, argv);
-
+/*
 	printw("Out of parse args!\n");
 	refresh();
 	getchar();
-
+*/
   // initialize color
   if( has_colors() ){
     start_color();
