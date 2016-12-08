@@ -353,9 +353,9 @@ void MatrixApp::printUsage(int argc, char *argv[])
 {
 	endwin();
 	std::cout << "Usage: " << argv[0] << " [-s speed] [-c color]" << std::endl;
-	std::cout << "-s [speed]: how fast the matrix updates (in Frames Per Second); defaults to 20\n";
-	std::cout << "-c [color]: color to display the matrix in; defaults to green\n";
-	std::cout << "-m [height]: maximum height of a column of randomized characters (default 15)\n";
+	std::cout << "-s speed: how fast the matrix updates (in Frames Per Second); defaults to 20\n";
+	std::cout << "-c color: color to display the matrix in; defaults to green\n";
+	std::cout << "-m height: maximum height of a column of randomized characters (default 15)\n";
 	return;
 }
 
