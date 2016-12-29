@@ -44,6 +44,25 @@ Then type:
 which should give you a usable in this directory. You can then place the
 program somwhere like /usr/local/bin so you can run cppmatrix wherever!
 
+WINDOWS:
+---------------------
+The x86_Windows directory contains a pre built cppmatrix binary, while the 'windows'
+directory contains a separate Makefile for ncursesw, a windows port of ncurses.
+Unfortunately it doesn't seem to support color, so your matrix will be whatever color
+your CMD window is :(
+
+To compile cppmatrix on windows, you will need MinGW and ncursesw, which can be found
+here:
+
+	http://invisible-island.net/ncurses/
+	
+Under the MinGW Port section.
+I was able to compile cppmatrix in both CMD and msys, so it shouldn't matter which one you
+use; cygwin should (I'm assuming) work too.
+
+When trying to run cppmatrix in msys, I get the error 'Error opening terminal: cygwin'; hence
+why I assume it works in cygwin; I just haven't gotten around to testing it there yet.
+
 COPYRIGHT
 ----------
 Released under GNU General Public License - see 'COPYING'; I have no 
