@@ -57,6 +57,8 @@ here:
 	http://invisible-island.net/ncurses/
 	
 Under the MinGW Port section.
+I've also included a copy of the MinGW library in the windows folder, too.
+
 I was able to compile cppmatrix in both CMD and msys, so it shouldn't matter which one you
 use; cygwin should (I'm assuming) work too.
 
