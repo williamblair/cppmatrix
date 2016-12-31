@@ -19,12 +19,10 @@
 #ifndef BJ_MATRIX
 #define BJ_MATRIX
 
-//#define MAX_COL_HEIGHT 15 // max number of symbols in one group
-
   typedef struct CodeColumn
   {
     bool use;       // bool for if the column is being used or not
-    bool bold;      // bool for wether to bold the text or not
+    bool bold;      // bool for whether to bold the text or not
     int col;        // the column this group is in
     int h;          // height of the codeColumn
     int topRow;     // the location of the top of the code
@@ -46,10 +44,9 @@
       int h; // the height of the screen
 
       int FPS; // speed of the program
-			int COL_HEIGHT; // how many characters a block of text is tall
+      int COL_HEIGHT; // how many characters a block of text is tall
       struct timespec myTime;
 
-      //int **screen; // matrix of each location on the screen
       std::vector<CodeColumn> c; // vector containing a bunch of code columns
       unsigned int color;        // the color of the code columns
   };
